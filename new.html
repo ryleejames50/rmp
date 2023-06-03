@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Real Media Promotin</title>
+</head>
+<div class="followers-count">
+  <span id="count">Loading...</span> followers
+</div>
+<style>
+	.followers-count {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+</style>
+<script>
+	// Function to fetch follower count
+function fetchFollowersCount(username) {
+  // Make API request to fetch follower count
+  // Replace the API_URL with the appropriate endpoint for fetching the follower count
+
+  fetch(`API_URL?username=${username}`)
+    .then(response => response.json())
+    .then(data => {
+      const followersCount = data.followers_count;
+      const countElement = document.getElementById('count');
+      countElement.textContent = followersCount;
+    })
+    .catch(error => {
+      console.error('Error fetching follower count:', error);
+      const countElement = document.getElementById('count');
+      countElement.textContent = 'Error';
+    });
+}
+
+// Call the fetchFollowersCount function with the desired username
+fetchFollowersCount('username');
+</script>
+</body>
+</html>

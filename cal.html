@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Real Media Promotion</title>
+</head>
+<body>
+  <!-- Trial -->
+<div class="dashboard">
+  <div class="calculator">
+    <label for="followers">Followers:</label>
+    <input type="number" id="followers" min="0">
+    <label for="likes">Likes:</label>
+    <input type="number" id="likes" min="0">
+    <label for="comments">Comments:</label>
+    <input type="number" id="comments" min="0">
+    <button id="calculateBtn">Calculate Engagement</button>
+    <div id="result"></div>
+  </div>
+  <div class="chart-container">
+    <canvas id="engagementChart"></canvas>
+  </div>
+</div>
+
+<style>
+/*.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  padding: 20px;
+}*/
+
+.calculator {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.calculator label,
+.calculator input,
+.calculator button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.calculator input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.calculator button {
+  padding: 10px 20px;
+  background-color: #fca311;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.calculator button:hover {
+  background-color: #e69500;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #fca311;
+  font-size: 18px;
+}
+
+.chart-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 300px;
+}
+
+</style>
+
+<script>
+  const calculateBtn = document.getElementById('calculateBtn');
+const resultElement = document.getElementById('result');
+
+// Chart.js configuration
+const chartElement = document.getElementById('engagementChart');
+let chart;
+
+calculateBtn.addEventListener('click', calculateEngagement);
+
+function calculateEngagement() {
+  const followersInput = document.getElementById('followers');
+  const likesInput = document.getElementById('likes');
+  const commentsInput = document.getElementById('comments');
+
+  const followersCount = parseInt(followersInput.value);
+  const likesCount = parseInt(likesInput.value);
+  const commentsCount = parseInt(commentsInput.value);
+
+  if (followersCount > 0 && likesCount >= 0 && commentsCount >= 0) {
+    const engagementRate = ((likesCount + commentsCount) / followersCount) * 100;
+    resultElement.textContent = `Engagement Rate: ${engagementRate.toFixed(2)}%`;
+
+    // Update the chart with the latest data
+    updateChart(engagementRate);
+  } else {
+    resultElement.textContent = 'Please enter valid values';
+  }
+}
+
+// Function to update the chart with new data
+function updateChart(engagementRate) {
+  if (chart) {
+    // Add a new data point to the existing chart
+    chart.data.labels.push(`Day ${chart.data.labels.length + 1}`);
+    chart.data.datasets[0].data.push(engagementRate);
+    chart.update();
+  } else {
+    // Create the initial chart
+    chart = new Chart(chartElement, {
+      type: 'line',
+      data: {
+        labels: ['Day 1'],
+        datasets: [
+          {
+            label: 'Engagement Rate',
+            data: [engagementRate],
+            borderColor: '#fca311',
+            backgroundColor: 'rgba(252, 163, 17, 0.2)',
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    });
+  }
+}
+</script>
+  <!-- End  -->
+<!-- <div class="calculator">
+  <label for="followers">Followers:</label>
+  <input type="number" id="followers" min="0">
+  <label for="likes">Likes:</label>
+  <input type="number" id="likes" min="0">
+  <label for="comments">Comments:</label>
+  <input type="number" id="comments" min="0">
+  <button id="calculateBtn">Calculate Engagement</button>
+  <div id="result"></div>
+</div>
+<style>
+  .calculator {
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+label, input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #fca311;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+</style>
+<script>
+  const calculateBtn = document.getElementById('calculateBtn');
+const resultElement = document.getElementById('result');
+
+calculateBtn.addEventListener('click', calculateEngagement);
+
+function calculateEngagement() {
+  const followersInput = document.getElementById('followers');
+  const likesInput = document.getElementById('likes');
+  const commentsInput = document.getElementById('comments');
+
+  const followersCount = parseInt(followersInput.value);
+  const likesCount = parseInt(likesInput.value);
+  const commentsCount = parseInt(commentsInput.value);
+
+  if (followersCount > 0 && likesCount >= 0 && commentsCount >= 0) {
+    const engagementRate = ((likesCount + commentsCount) / followersCount) * 100;
+    resultElement.textContent = `Engagement Rate: ${engagementRate.toFixed(2)}%`;
+  } else {
+    resultElement.textContent = 'Please enter valid values';
+  }
+}
+</script> -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

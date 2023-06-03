@@ -1,0 +1,106 @@
+<div class="owl-carousel">
+  <div class="item">
+    <a class="popup-youtube" href="https://www.youtube.com/watch?v=5SJml0MBhW4?autoplay=1&rel=0&controls=0&showinfo=0&wmode=transparent">
+<img src="https://res.cloudinary.com/milairagny/image/upload/v1487938016/pexels-photo-4_tfmpvk.jpg"><i class="fa fa-play" aria-hidden="true"></i></a>
+  </div>
+  <div class="item">
+    <a class="popup-youtube" href="https://www.youtube.com/watch?v=5SJml0MBhW4?autoplay=1&rel=0&controls=0&showinfo=0&wmode=transparent"><img src="https://res.cloudinary.com/milairagny/image/upload/v1487938017/pexels-photo-3_ppz2bb.jpg"><i class="fa fa-play" aria-hidden="true"></i></a>
+  </div>
+  <div class="item">
+    <a class="popup-text" href="#1">
+      <img src="https://res.cloudinary.com/milairagny/image/upload/v1487938016/pexels-photo-2_hstxhf.jpg"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    </a>
+    <div id="1" class="mfp-hide white-popup-block popup-text">
+      <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+      <span>- Opal Ingram</span>
+    </div>
+  </div>
+  <div class="item">
+    <a class="popup-youtube" href="https://www.youtube.com/watch?v=5SJml0MBhW4?autoplay=1&rel=0&controls=0&showinfo=0&wmode=transparent"><img src="https://res.cloudinary.com/milairagny/image/upload/v1487938123/pexels-photo-5_x69tiz.jpg"><i class="fa fa-play" aria-hidden="true"></i>
+</a>
+  </div>
+  <div class="item">
+    <a class="popup-text" href="#2">
+      <img src="https://res.cloudinary.com/milairagny/image/upload/v1487937862/pexels-photo-91227_lpsizl.jpg"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    </a>
+    <div id="2" class="mfp-hide white-popup-block popup-text">
+      <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+      <span>- Rick Baleno</span>
+    </div>
+  </div>
+</div>
+
+  <style>
+    <div class="owl-carousel">
+  <div class="item">
+    <a class="popup-youtube" href="https://www.youtube.com/watch?v=5SJml0MBhW4?autoplay=1&rel=0&controls=0&showinfo=0&wmode=transparent">
+<img src="https://res.cloudinary.com/milairagny/image/upload/v1487938016/pexels-photo-4_tfmpvk.jpg"><i class="fa fa-play" aria-hidden="true"></i></a>
+  </div>
+  <div class="item">
+    <a class="popup-youtube" href="https://www.youtube.com/watch?v=5SJml0MBhW4?autoplay=1&rel=0&controls=0&showinfo=0&wmode=transparent"><img src="https://res.cloudinary.com/milairagny/image/upload/v1487938017/pexels-photo-3_ppz2bb.jpg"><i class="fa fa-play" aria-hidden="true"></i></a>
+  </div>
+  <div class="item">
+    <a class="popup-text" href="#1">
+      <img src="https://res.cloudinary.com/milairagny/image/upload/v1487938016/pexels-photo-2_hstxhf.jpg"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    </a>
+    <div id="1" class="mfp-hide white-popup-block popup-text">
+      <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+      <span>- Opal Ingram</span>
+    </div>
+  </div>
+  <div class="item">
+    <a class="popup-youtube" href="https://www.youtube.com/watch?v=5SJml0MBhW4?autoplay=1&rel=0&controls=0&showinfo=0&wmode=transparent"><img src="https://res.cloudinary.com/milairagny/image/upload/v1487938123/pexels-photo-5_x69tiz.jpg"><i class="fa fa-play" aria-hidden="true"></i>
+</a>
+  </div>
+  <div class="item">
+    <a class="popup-text" href="#2">
+      <img src="https://res.cloudinary.com/milairagny/image/upload/v1487937862/pexels-photo-91227_lpsizl.jpg"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    </a>
+    <div id="2" class="mfp-hide white-popup-block popup-text">
+      <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+      <span>- Rick Baleno</span>
+    </div>
+  </div>
+</div>
+  </style>
+
+  <script>
+    $('.owl-carousel').owlCarousel({
+  autoplay: true,
+  autoplayTimeout: 5000,
+  autoplayHoverPause: true,
+  loop: true,
+  margin: 50,
+  responsiveClass: true,
+  nav: true,
+  loop: true,
+  stagePadding: 100,
+  responsive: {
+    0: {
+      items: 1
+    },
+    568: {
+      items: 2
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 3
+    }
+  }
+})
+$(document).ready(function() {
+  $('.popup-youtube').magnificPopup({
+    disableOn: 320,
+    type: 'iframe',
+    mainClass: 'mfp-fade',
+    removalDelay: 160,
+    preloader: false,
+    fixedContentPos: true
+  });
+});
+$('.item').magnificPopup({
+  delegate: 'a',
+});
+  </script>

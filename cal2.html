@@ -1,0 +1,195 @@
+<!-- <div class="calculator">
+  <h2>Instagram Engagement Calculator</h2>
+  <label for="followers" style="text-align:center;">Followers count:</label>
+  <input type="number" id="followers" placeholder="Enter followers count" style="margin-left:55px">
+  <label for="likes" style="text-align:center;">Average Likes:</label>
+  <input type="number" id="likes" placeholder="Enter likes count" style="margin-left:55px">
+  <label for="comments" style="text-align:center;">Average Comments:</label>
+  <input type="number" id="comments" placeholder="Enter comments count" style="margin-left:55px">
+  <button onclick="calculateEngagement()" style="margin-left: 100px;">Calculate</button>
+  <div id="result" style="margin-left:55px"></div>
+</div>
+
+<style>
+  .calculator {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label, input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #fca311;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e69500;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #fca311;
+  font-size: 18px;
+}
+</style>
+
+<script>
+  function calculateEngagement() {
+  var followersInput = document.getElementById('followers');
+  var likesInput = document.getElementById('likes');
+  var commentsInput = document.getElementById('comments');
+  var result = document.getElementById('result');
+
+  var followersCount = parseInt(followersInput.value);
+  var likesCount = parseInt(likesInput.value);
+  var commentsCount = parseInt(commentsInput.value);
+
+  if (isNaN(followersCount) || isNaN(likesCount) || isNaN(commentsCount)) {
+    result.innerHTML = 'Please enter valid numbers';
+  } else {
+    var engagementRate = ((likesCount + commentsCount) / followersCount) * 100;
+    result.innerHTML = 'Engagement Rate: ' + engagementRate.toFixed(2) + '%';
+  }
+}
+</script> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagram Engagement Calculator</title>
+  <style>
+    /* CSS for the dashboard layout */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+      padding: 20px;
+    }
+
+    .widget {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .widget h2 {
+      margin-top: 0;
+    }
+
+    .widget p {
+      margin-bottom: 0;
+    }
+
+    /* CSS for the Instagram Engagement Calculator */
+    .calculator {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .calculator label,
+    .calculator input,
+    .calculator button {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .calculator input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .calculator button {
+      padding: 10px 20px;
+      background-color: #fca311;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .calculator button:hover {
+      background-color: #e69500;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #fca311;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="widget">
+      <h2>Instagram Engagement Calculator</h2>
+      <div class="calculator">
+        <label for="followers">Followers:</label>
+        <input type="number" id="followers" placeholder="Enter followers count">
+        <label for="likes">Likes:</label>
+        <input type="number" id="likes" placeholder="Enter likes count">
+        <label for="comments">Comments:</label>
+        <input type="number" id="comments" placeholder="Enter comments count"><br>
+        <button onclick="calculateEngagement()">Calculate</button>
+        <div id="result" style="margin-left:270px"></div>
+      </div>
+    </div>
+    <div class="widget">
+      <h2>Other Widget</h2>
+      <p>Content for other widget</p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript function to calculate engagement
+    function calculateEngagement() {
+      var followers = parseInt(document.getElementById('followers').value);
+      var likes = parseInt(document.getElementById('likes').value);
+      var comments = parseInt(document.getElementById('comments').value);
+
+      var engagement = ((likes + comments) / followers) * 100;
+      document.getElementById('result').textContent = "Engagement: " + engagement.toFixed(2) + "%";
+    }
+  </script>
+</body>
+</html>
